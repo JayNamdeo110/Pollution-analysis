@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f7e6; /* Light green background */
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .card {
+            width: 200px;
+            margin: 10px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Home</h1>
+    </header>
+    <main>
+        <div class="card-container">
+            <div class="card">
+                <a href="C:\Users\namde\OneDrive\Desktop\dataset\templates\index.html">Dashboard</a>
+            </div>
+            <div class="card">
+                <a href="C:\Users\namde\OneDrive\Desktop\dataset\templates\prediction.html">Prediction Analysis</a>
+            </div>
+            <div class="card">
+                <a href="C:\Users\namde\OneDrive\Desktop\dataset\templates\diagonostic.html">Diagnostics Analysis</a>
+            </div>
+            <div class="card">
+                <a href="C:\Users\namde\OneDrive\Desktop\dataset\templates\prescriptive.html">Prescriptive Analysis</a>
+            </div>
+            <div class="card">
+                <a href="C:\Users\namde\OneDrive\Desktop\dataset\templates\descriptive.html">Descriptive Analysis</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Pollution Monitor</p>
+    </footer>
+</body>
+</html>

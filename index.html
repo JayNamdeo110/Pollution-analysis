@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pollution Levels</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        #pollutants {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .pollutant {
+            background-color: #e6f7e6; /* Light green background */
+            border-radius: 10px;
+            margin: 15px;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-radius 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+
+        .pollutant:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            opacity: 0.9;
+        }
+
+        .pollutant h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .pollutant:hover h2 {
+            color: #007bff;
+        }
+
+        .pollutant .value {
+            font-size: 20px;
+            color: #007bff;
+        }
+
+        .pollutant .description {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .link-button {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 30px;
+            margin-top: 20px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .link-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pollution Levels</h1>
+    </header>
+    <main>
+        <section id="pollutants">
+            <div class="pollutant" id="co">
+                <h2>CO</h2>
+                <p class="value">Loading...</p>
+                <p class="description">Carbon Monoxide</p>
+            </div>
+            <div class="pollutant" id="no2">
+                <h2>NO2</h2>
+                <p class="value">Loading...</p>
+                <p class="description">Nitrogen Dioxide</p>
+            </div>
+            <div class="pollutant" id="so2">
+                <h2>SO2</h2>
+                <p class="value">Loading...</p>
+                <p class="description">Sulphur Dioxide</p>
+            </div>
+            <div class="pollutant" id="o3">
+                <h2>O3</h2>
+                <p class="value">Loading...</p>
+                <p class="description">ozone</p>
+            </div>
+            <div class="pollutant" id="no">
+                <h2>NO</h2>
+                <p class="value">Loading...</p>
+                <p class="description">Nitric Oxide</p>
+            </div>
+            <div class="pollutant" id="no3">
+                <h2>NO3</h2>
+                <p class="value">Loading...</p>
+                <p class="description">Nitrate</p>
+            </div>
+            <div class="pollutant" id="natural_gas">
+                <h2>Natural Gas</h2>
+                <p class="value">Loading...</p>
+                <p class="description">Methane</p>
+            </div>
+
+            
+        </section>
+        <a href="C:\Users\namde\OneDrive\Desktop\dataset\templates\prediction.html" class="link-button">Go to Prediction</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Pollution Monitor</p>
+    </footer>
+    <script>
+        async function fetchData() {
+            const apiKey = '44FTSLPW3XZENNWK';
+            const channelID = '2475645'; // Remove space here
+            const fieldNumber = '1'; 
+    
+            const url = 'https://api.thingspeak.com/channels/2475645/fields/1.json?api_key=44FTSLPW3XZENNWK&results=1'; // Enclose URL in quotes
+    
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                const feeds = data.feeds[0];
+                document.getElementById('co').querySelector('.value').textContent = feeds.field1 + ' ppm';
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+    
+        fetchData();
+        setInterval(fetchData, 30000);
+    </script>
+    
+</body>
+</html>
