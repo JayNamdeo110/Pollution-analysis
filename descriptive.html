@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diagnostic Result</title>
+    <title>Descriptive Analysis</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -95,6 +95,23 @@
         .file-upload-label:hover {
             background-color: #0056b3;
         }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-text {
+            color: #fff;
+            font-size: 24px;
+        }
     </style>
 </head>
 <body>
@@ -102,11 +119,11 @@
         <h1>Descriptive Analysis</h1>
     </header>
     <main>
-        <p> Descriptive Analysis </p>
-        <form action="C:\Users\namde\OneDrive\Desktop\dataset\templates\Descriptive_result.html" method="post" enctype="multipart/form-data">
+        <p>Descriptive Analysis</p>
+        <form id="descriptiveForm" action="C:\Users\namde\OneDrive\Desktop\dataset\templates\Descriptive_result.html" method="post" enctype="multipart/form-data">
             <input type="file" name="data_file" id="data_file" accept=".csv" required>
             <label for="data_file" class="file-upload-label">Upload CSV</label>
-            <button type="submit">Analyze</button>
+            <button type="submit" id="analyzeBtn">Analyze</button>
         </form>
         <a href="C:/Users/namde/OneDrive/Desktop/dataset/templates/home.html"><button>Back to Home</button></a>
     </main>
@@ -114,5 +131,19 @@
     <footer>
         <p>&copy; 2024 Pollution Prediction</p>
     </footer>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-text">Analyzing...</div>
+    </div>
+
+    <script>
+        document.getElementById("descriptiveForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            document.getElementById("loadingOverlay").style.display = "flex";
+            setTimeout(function() {
+                document.getElementById("descriptiveForm").submit();
+            }, 2000);
+        });
+    </script>
 </body>
 </html>
