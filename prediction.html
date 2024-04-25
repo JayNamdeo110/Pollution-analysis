@@ -92,6 +92,23 @@
         body.animate-background {
             animation: changeBackgroundColor 5s infinite;
         }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-text {
+            color: #fff;
+            font-size: 24px;
+        }
     </style>
 </head>
 <body class="animate-background">
@@ -99,14 +116,28 @@
         <h1>Upload CSV for Prediction</h1>
     </header>
     <main>
-        <form action="C:\Users\namde\OneDrive\Desktop\dataset\templates\result.html" method="post" enctype="multipart/form-data">
+        <form id="uploadForm" action="C:\Users\namde\OneDrive\Desktop\dataset\templates\result.html" method="post" enctype="multipart/form-data">
             <input type="file" name="data_file" accept=".csv" required>
-            <button type="submit">Upload and Predict</button>
+            <button type="submit" id="predictBtn">Upload and Predict</button>
         </form>
     </main>
 
     <footer>
         <p>&copy; 2024 Pollution Prediction</p>
     </footer>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-text">Analyzing...</div>
+    </div>
+
+    <script>
+        document.getElementById("uploadForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            document.getElementById("loadingOverlay").style.display = "flex";
+            setTimeout(function() {
+                document.getElementById("uploadForm").submit();
+            }, 2000);
+        });
+    </script>
 </body>
 </html>
