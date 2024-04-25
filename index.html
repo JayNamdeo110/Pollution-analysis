@@ -154,7 +154,7 @@
 
             
         </section>
-        <a href="C:\Users\namde\OneDrive\Desktop\dataset\templates\prediction.html" class="link-button">Go to Prediction</a>
+        <a href="C:\Users\namde\OneDrive\Desktop\dataset\templates\home.html" class="link-button">Go to Home</a>
     </main>
 
     <footer>
@@ -163,7 +163,7 @@
     <script>
         async function fetchData() {
             const apiKey = '44FTSLPW3XZENNWK';
-            const channelID = '2475645'; // Remove space here
+            const channelID = '2475645'; 
             const fieldNumber = '1'; 
     
             const url = 'https://api.thingspeak.com/channels/2475645/fields/1.json?api_key=44FTSLPW3XZENNWK&results=1'; // Enclose URL in quotes
@@ -172,7 +172,21 @@
                 const response = await fetch(url);
                 const data = await response.json();
                 const feeds = data.feeds[0];
-                document.getElementById('co').querySelector('.value').textContent = feeds.field1 + ' ppm';
+                const coValue = parseFloat(feeds.field1);
+    
+                const coPollutant = document.getElementById('co');
+                const coValueElement = coPollutant.querySelector('.value');
+                const coDescriptionElement = coPollutant.querySelector('.description');
+    
+                coValueElement.textContent = feeds.field1 + ' ppm';
+    
+                if (coValue > 50) {
+                    coPollutant.style.backgroundColor = '#FF3131'; 
+                    coDescriptionElement.textContent = 'Bad';
+                } else {
+                    coPollutant.style.backgroundColor = '#e6f7e6'; 
+                    coDescriptionElement.textContent = 'Good';
+                }
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -180,7 +194,8 @@
     
         fetchData();
         setInterval(fetchData, 30000);
-    </script>
+    </script>    
+    
     
 </body>
 </html>
