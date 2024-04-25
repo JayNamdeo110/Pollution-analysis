@@ -4,96 +4,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #e6f7e6; /* Light green background */
-            margin: 0;
-            padding: 0;
-            transition: background-color 0.3s;
+            padding-top: 60px; /* Adjusted for Bootstrap navbar */
         }
 
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            transition: background-color 0.3s;
+        .jumbotron {
+            background-color: #fff;
+            padding: 2rem 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        h1 {
-            margin: 0;
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            transition: all 0.3s ease;
         }
 
-        main {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .card-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 50px;
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
         }
 
         .card {
-            width: 200px;
-            margin: 10px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            transition: all 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
-        .card a {
-            text-decoration: none;
-            color: #333;
-        }
-
-        footer {
+        
+        .footer {
             background-color: #333;
             color: #fff;
-            padding: 10px;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            transition: background-color 0.3s;
+            padding: 20px 0;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .footer a:hover {
+            color: #007bff;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Home</h1>
-    </header>
-    <main>
-        <div class="card-container">
-            <div class="card">
-                <a href="C:\Users\namde\OneDrive\Desktop\dataset\templates\index.html">Dashboard</a>
-            </div>
-            <div class="card">
-                <a href="C:\Users\namde\OneDrive\Desktop\dataset\templates\prediction.html">Prediction Analysis</a>
-            </div>
-            <div class="card">
-                <a href="C:\Users\namde\OneDrive\Desktop\dataset\templates\diagonostic.html">Diagnostics Analysis</a>
-            </div>
-            <div class="card">
-                <a href="C:\Users\namde\OneDrive\Desktop\dataset\templates\prescriptive.html">Prescriptive Analysis</a>
-            </div>
-            <div class="card">
-                <a href="C:\Users\namde\OneDrive\Desktop\dataset\templates\descriptive.html">Descriptive Analysis</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Pollution Monitor</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="C:\Users\namde\OneDrive\Desktop\dataset\templates\index.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="C:\Users\namde\OneDrive\Desktop\dataset\templates\prediction.html">Prediction Analysis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="C:\Users\namde\OneDrive\Desktop\dataset\templates\diagonostic.html">Diagnostics Analysis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="C:\Users\namde\OneDrive\Desktop\dataset\templates\prescriptive.html">Prescriptive Analysis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="C:\Users\namde\OneDrive\Desktop\dataset\templates\descriptive.html">Descriptive Analysis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="C:\Users\namde\OneDrive\Desktop\dataset\templates\login_page.html">Login</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </main>
-    <footer>
-        <p>&copy; 2024 Pollution Monitor</p>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome to Pollution Monitor</h1>
+            <p class="lead">Analyze pollution data and gain insights to improve environmental quality.</p>
+            <hr class="my-4">
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Dashboard</h5>
+                            <p class="card-text">View interactive visualizations of pollution data.</p>
+                            <a href="C:\Users\namde\OneDrive\Desktop\dataset\templates\index.html" class="btn btn-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Prediction Analysis</h5>
+                            <p class="card-text">Predict future pollution levels using machine learning models.</p>
+                            <a href="C:\Users\namde\OneDrive\Desktop\dataset\templates\prediction.html" class="btn btn-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Diagnostics Analysis</h5>
+                            <p class="card-text">Analyze pollution data to diagnose environmental issues.</p>
+                            <a href="C:\Users\namde\OneDrive\Desktop\dataset\templates\diagonostic.html" class="btn btn-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Prescriptive Analysis</h5>
+                            <p class="card-text">Get recommendations to mitigate pollution based on analysis.</p>
+                            <a href="C:\Users\namde\OneDrive\Desktop\dataset\templates\prescriptive.html" class="btn btn-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Descriptive Analysis</h5>
+                            <p class="card-text">Understand trends and patterns in pollution data.</p>
+                            <a href="C:\Users\namde\OneDrive\Desktop\dataset\templates\descriptive.html" class="btn btn-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <a href="#">Contact Us</a>
+        </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
