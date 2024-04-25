@@ -95,18 +95,36 @@
         .file-upload-label:hover {
             background-color: #0056b3;
         }
+
+        /* Loading overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-text {
+            color: #fff;
+            font-size: 24px;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Prescriptive Analysis</h1>
+        <h1>Diagnostic Analysis</h1>
     </header>
     <main>
-        <p> Prescriptive Analysis </p>
-        <form action="C:\Users\namde\OneDrive\Desktop\dataset\templates\prescriptive_result.html" method="post" enctype="multipart/form-data">
+        <p>Diagnostic Analysis</p>
+        <form id="analysisForm" action="C:\Users\namde\OneDrive\Desktop\dataset\templates\diagonostic_result.html" method="post" enctype="multipart/form-data">
             <input type="file" name="data_file" id="data_file" accept=".csv" required>
             <label for="data_file" class="file-upload-label">Upload CSV</label>
-            <button type="submit">Analyze</button>
+            <button type="submit" id="analyzeBtn">Analyze</button>
         </form>
         <a href="C:/Users/namde/OneDrive/Desktop/dataset/templates/home.html"><button>Back to Home</button></a>
     </main>
@@ -114,5 +132,18 @@
     <footer>
         <p>&copy; 2024 Pollution Prediction</p>
     </footer>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-text">Loading...</div>
+    </div>
+
+    <script>
+        document.getElementById("analysisForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            document.getElementById("loadingOverlay").style.display = "flex";
+            setTimeout(function() {
+                document.getElementById("analysisForm").submit();
+            }, 2000);
+        });
+    </script>
 </body>
 </html>
